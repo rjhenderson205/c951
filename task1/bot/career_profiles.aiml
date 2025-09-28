@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>*</pattern>
+    <that>WONDERFUL! TELL ME ABOUT A RECENT PROJECT OR CLASS THAT EXCITED YOU.</that>
+    <template>
+      <think><set name="strength"><star/></set></think>
+      Great! What kind of work environment or collaboration style gives you the most energy?
+    </template>
+  </category>
+
+  <category>
+    <pattern>*</pattern>
+    <that>GREAT! WHAT KIND OF WORK ENVIRONMENT OR COLLABORATION STYLE GIVES YOU THE MOST ENERGY?</that>
+    <template>
+      <think><set name="workstyle"><star/></set></think>
+      Noted. What computing topics or problems do you want to tackle in your future role?
+    </template>
+  </category>
+
+  <category>
+    <pattern>*</pattern>
+    <that>NOTED. WHAT COMPUTING TOPICS OR PROBLEMS DO YOU WANT TO TACKLE IN YOUR FUTURE ROLE?</that>
+    <template>
+      <think><set name="focus"><star/></set></think>
+      <think><set name="path"><map name="interest_job"><star/></map></set></think>
+      <condition name="path">
+  <li value="SOFTWARE">Based on what you shared, you may thrive as a <bot name="job_software"/>. Say "resources please" for curated ideas or "schedule advisor" for human support.</li>
+  <li value="DATA">Your interests align with a <bot name="job_data"/>. Say "resources please" for curated ideas or "schedule advisor" for human support.</li>
+  <li value="CYBER">Your vigilance points to a <bot name="job_cyber"/> path. Say "resources please" for curated ideas or "schedule advisor" for human support.</li>
+  <li value="ML">It sounds like you would enjoy work as a <bot name="job_ml"/>. Say "resources please" for curated ideas or "schedule advisor" for human support.</li>
+  <li value="UX">Your empathy suggests a future in <bot name="job_ux"/>. Say "resources please" for curated ideas or "schedule advisor" for human support.</li>
+        <li>Thanks for sharing! I want to connect you with a human advisor for more tailored help. Shall I share scheduling instructions?</li>
+      </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>YES</pattern>
+    <that>*RESOURCES*</that>
+    <template>
+      Great! Just say "resources please" and I’ll tailor some next steps, or say "schedule advisor" if you prefer human guidance.
+    </template>
+  </category>
+
+  <category>
+    <pattern>RESOURCES</pattern>
+    <template>
+      I can share resources tailored to your suggested path. Just say "resources please" after we identify a role.
+    </template>
+  </category>
+
+  <category>
+    <pattern>RESOURCES PLEASE</pattern>
+    <template>
+      <condition name="path">
+        <li value="SOFTWARE"><map name="resources">SOFTWARE</map></li>
+        <li value="DATA"><map name="resources">DATA</map></li>
+        <li value="CYBER"><map name="resources">CYBER</map></li>
+        <li value="ML"><map name="resources">ML</map></li>
+        <li value="UX"><map name="resources">UX</map></li>
+        <li>Let me connect you with a human advisor. Visit the career center portal to book time with an expert.</li>
+      </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>I NEED A HUMAN</pattern>
+    <template>
+      Absolutely. Visit the career center scheduler at https://career.example.edu to reserve time with an advisor.
+    </template>
+  </category>
+
+  <category>
+    <pattern>SCHEDULE ADVISOR</pattern>
+    <template>
+      You can schedule with a human advisor here: https://career.example.edu.
+    </template>
+  </category>
+
+  <category>
+    <pattern>*</pattern>
+    <template>
+      I’m here to talk about computing careers. Could you share what excites you about technology or say "resources please" if you’d like suggestions?
+    </template>
+  </category>
+</aiml>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>LOAD AIML B</pattern>
+    <template>
+      <learn>career_profiles.aiml</learn>
+    </template>
+  </category>
+
+  <category>
+    <pattern>HELLO</pattern>
+    <template>
+      Hello! I am the CS Career Compass. Type "start advising" whenever you are ready to explore computing career paths.
+    </template>
+  </category>
+
+  <category>
+    <pattern>START ADVISING</pattern>
+    <template>
+      <think><set name="strength"></set></think>
+      <think><set name="workstyle"></set></think>
+      <think><set name="focus"></set></think>
+      Wonderful! Tell me about a recent project or class that excited you.
+    </template>
+  </category>
+</aiml>
